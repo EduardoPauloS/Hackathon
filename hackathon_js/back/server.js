@@ -20,7 +20,6 @@ app.get('/toptrends', (request, response) => {
         let result = []
         data['statuses'].map(item => { result.push(item)});
         result = JSON.stringify(result);
-        console.log(result.length)
 
         fs.appendFile("./arch.json", result, err => {
             if (err) throw err;
@@ -42,9 +41,6 @@ app.post("/toptrends", (request, response) => {
             result.push({"id": item.id, 'text': item.text})
         });
 
-        console.log(result);
         response.send(result);
     })
 })
-
-
